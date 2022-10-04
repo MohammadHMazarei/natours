@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "natours is a tourism website that you can find NA (North America) tours and choose the best tour you want. my first backend project on node/express.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammadHMazarei/natours.git"
+  },
+  "author": "Mohammad Hosein Mazarei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohammadHMazarei/natours/issues"
+  },
+  "homepage": "https://github.com/MohammadHMazarei/natours#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
