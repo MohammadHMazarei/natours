@@ -6,4 +6,6 @@ exports.getTour = (req, res, next) => {};
 
 exports.createTour = (req, res, next) => {};
 
+exports.updateTour = (req, res, next) => {};
+
 exports.deleteTour = (req, res, next) => {};
