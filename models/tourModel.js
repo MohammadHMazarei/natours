@@ -26,6 +26,55 @@ const tourSchema = new mongoose.Schema({
       message: 'Difficulty is either: easy, medium, difficult',
     },
   },
+  ratingsAverage: {
+    type: Number,
+    required: [true, 'A tour must have a ratingsAverage'],
+    defualt: 4.5,
+    min: [1, 'Rating must be above 1.0'],
+    max: [5, 'Rating must be below 5.0'],
+    set: (val) => Math.round(val * 10) / 10,
+  },
+  ratingsQuantity: {
+    type: Number,
+    default: 0,
+  },
+  price: {
+    type: Number,
+    required: [true, 'A tour must have a price'],
+  },
+  priceDiscoumt: {
+    type: Number,
+    validate: {
+      validator: function (val) {
+        return val < this.price;
+      },
+      message: 'Discount price ({VALUE}) should be below regular price',
+    },
+  },
+  summary: {
+    type: String,
+    trim: true,
+    required: [true, 'A tour must have a summary'],
+  },
+  description: {
+    type: String,
+    trim: true,
+  },
+  imageCover: {
+    type: String,
+    required: [true, 'A tour must have a cover image'],
+  },
+  images: [String],
+  createdAt: {
+    type: Date,
+    defualt: Date.now(),
+    select: false,
+  },
+  startDates: [Date],
+  secretTour: {
+    type: Boolean,
+    defualt: false,
+  },
 });
 
 const Tour = mongoose.model('Tour', tourSchema);
