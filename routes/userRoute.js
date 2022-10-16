@@ -18,4 +18,6 @@ router.get('/me', userController.getMe, userController.getUser);
 
 router.patch('/updateMe', userController.updateMe);
 
+router.delete('/deleteMe', userController.deleteMe);
+
 module.exports = router;
