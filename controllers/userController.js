@@ -85,3 +85,18 @@ exports.createUser = catchAsync(async (req, res, next) => {
     message: 'This route is not defined! please use /signup endpoint',
   });
 });
+
+exports.getUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return next('No user found with that ID', 404);
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user,
+    },
+  });
+});
