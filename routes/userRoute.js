@@ -20,4 +20,6 @@ router.patch('/updateMe', userController.updateMe);
 
 router.delete('/deleteMe', userController.deleteMe);
 
+router.use(authController.restrictTo('admin'));
+
 module.exports = router;
