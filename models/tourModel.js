@@ -79,7 +79,7 @@ const tourSchema = new mongoose.Schema(
     startLocation: {
       type: {
         type: String,
-        defualt: 'Point',
+        default: 'Point',
         enum: ['Point'],
       },
       coordinates: [Number],
@@ -124,6 +124,15 @@ tourSchema.pre('save', function (next) {
 // QUERY MIDDLEWARE
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
+  next();
+});
+
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'guides',
+    select: '-__v -passwordChangedAt',
+  });
+
   next();
 });
 
