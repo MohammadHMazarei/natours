@@ -11,4 +11,6 @@ router
   .get(reviewController.getAllReviews)
   .post(reviewController.createReview);
 
+router.route('/:id').get(reviewController.getReview);
+
 module.exports = router;
