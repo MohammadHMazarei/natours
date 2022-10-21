@@ -68,18 +68,6 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getAllUser = catchAsync(async (req, res, next) => {
-  const users = await User.find();
-
-  res.status(200).json({
-    status: 'success',
-    results: users.length,
-    data: {
-      data: users,
-    },
-  });
-});
-
 exports.createUser = catchAsync(async (req, res, next) => {
   res.status(500).json({
     status: 'error',
@@ -87,6 +75,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
