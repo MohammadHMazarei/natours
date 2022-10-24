@@ -29,6 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.14",
     "nodemailer": "^6.8.0",
+    "otp-generator": "^4.0.0",
+    "redis": "^4.3.1",
     "slugify": "^1.6.5",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
