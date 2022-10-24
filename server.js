@@ -1,5 +1,4 @@
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION!!!  Shutting down...');
@@ -10,17 +9,10 @@ process.on('uncaughtException', (err) => {
 dotenv.config({ path: './config.env' });
 
 const app = require('./app');
+require('./connections/mongodbConnection');
+require('./connections/redisConnection');
 
-const DB = process.env.DATABASE_LOCAL;
-console.log(DB);
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log('DB Connection succesfull!'));
-
+// Server connection
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`App running on port ${port}`);
