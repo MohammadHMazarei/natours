@@ -13,8 +13,4 @@ client.on('connect', function () {
   console.log('Redis connection Established');
 });
 
-// client.set('ahmad', 'GOL', {
-//   EX: 30,
-// });
-
 module.exports = client;
